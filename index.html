@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vanthara Group</title>
+<meta name="description" content="Vanthara Group — Vanthara Homestay, Vanthara One Farm, and SVT Foods. From our land, our farms, and our home, to yours." />
+<style>
+  :root {
+    --navy-950: #10151f;
+    --navy-900: #161d2b;
+    --navy-800: #1f2839;
+    --gold-400: #e0b25c;
+    --gold-300: #f0cc85;
+    --cream-50: #faf7f0;
+    --ink-600: #8993a8;
+    --line: rgba(255,255,255,0.08);
+
+    --homestay-a: #7a5a2a;
+    --homestay-b: #d9a441;
+    --farm-a: #1f3d2b;
+    --farm-b: #3c7248;
+    --svt-a: #1f4d2e;
+    --svt-b: #5aa06a;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--navy-950);
+    color: var(--cream-50);
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(16, 21, 31, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  nav.links {
+    display: none;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-600);
+  }
+  nav.links a:hover { color: var(--gold-300); }
+
+  @media (min-width: 760px) {
+    nav.links { display: flex; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 100px 0 80px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(224,178,92,0.14), transparent),
+      radial-gradient(ellipse 700px 500px at 90% 10%, rgba(60,114,72,0.18), transparent);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(224,178,92,0.12);
+    border: 1px solid rgba(224,178,92,0.35);
+    color: var(--gold-300);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 999px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin: 24px 0 20px;
+    max-width: 760px;
+    font-weight: 800;
+  }
+  .hero h1 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--gold-300), var(--gold-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero p {
+    font-size: 18px;
+    color: var(--ink-600);
+    max-width: 560px;
+    margin: 0 0 36px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold-400);
+    color: var(--navy-950);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .hero-cta:hover { background: var(--gold-300); transform: translateY(-1px); }
+
+  /* ---------- Section headings ---------- */
+  .section { padding: 72px 0; }
+  .section-eyebrow {
+    color: var(--gold-300);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+  }
+  .section-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0 0 14px;
+    max-width: 620px;
+  }
+  .section-subtitle {
+    color: var(--ink-600);
+    font-size: 16px;
+    max-width: 560px;
+    margin: 0 0 8px;
+  }
+
+  /* ---------- Carousel ---------- */
+  .carousel-wrap {
+    margin-top: 48px;
+    position: relative;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  }
+  .carousel-track {
+    display: flex;
+    gap: 28px;
+    width: max-content;
+    animation: scroll-left 34s linear infinite;
+  }
+  .carousel-track:hover { animation-play-state: paused; }
+
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .company-card {
+    position: relative;
+    width: 380px;
+    flex: 0 0 auto;
+    border-radius: 22px;
+    padding: 32px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    isolation: isolate;
+  }
+  .company-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.9;
+  }
+  .company-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+  }
+  .company-card.homestay::before { background: linear-gradient(160deg, var(--homestay-a), var(--homestay-b)); }
+  .company-card.farm::before { background: linear-gradient(160deg, var(--farm-a), var(--farm-b)); }
+  .company-card.svt::before { background: linear-gradient(160deg, var(--svt-a), var(--svt-b)); }
+
+  .card-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+    display: inline-block;
+  }
+  .card-kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+  .company-card h3 {
+    font-size: 24px;
+    margin: 0 0 10px;
+    font-weight: 800;
+  }
+  .company-card p {
+    font-size: 14.5px;
+    opacity: 0.92;
+    margin: 0 0 22px;
+    min-height: 66px;
+  }
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    background: rgba(255,255,255,0.16);
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: background 0.2s ease, gap 0.2s ease;
+  }
+  .company-card:hover .card-cta { background: rgba(255,255,255,0.28); gap: 12px; }
+
+  .carousel-hint {
+    text-align: center;
+    color: var(--ink-600);
+    font-size: 13px;
+    margin-top: 22px;
+  }
+
+  /* ---------- Static grid fallback note removed; also add manual grid below for accessibility/small screens ---------- */
+
+  /* ---------- About ---------- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+  }
+  .stat {
+    background: var(--navy-800);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px;
+    text-align: center;
+  }
+  .stat strong { display: block; font-size: 22px; color: var(--gold-300); }
+  .stat span { font-size: 12px; color: var(--ink-600); }
+
+  .about-art {
+    background: var(--navy-800);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 48px;
+    text-align: center;
+    font-size: 72px;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 48px 0 32px;
+    background: var(--navy-900);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-grid h4 { font-size: 14px; margin: 0 0 14px; color: var(--gold-300); }
+  .footer-grid ul { list-style: none; margin: 0; padding: 0; }
+  .footer-grid li { margin-bottom: 8px; font-size: 14px; color: var(--ink-600); }
+  .footer-grid li a:hover { color: var(--cream-50); }
+  .footer-bottom {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-600);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-row">
+    <div class="brand">
+      <span class="brand-mark">🌿</span>
+      Vanthara Group
+    </div>
+    <nav class="links">
+      <a href="#companies">Our Companies</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#companies" class="hero-cta" style="padding:10px 20px;font-size:13px;">Explore</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">🌾 Vanthara Group</span>
+    <h1>From our land, our farms,<br>and our home — <em>to yours.</em></h1>
+    <p>
+      Vanthara Group is a family of businesses built on the same idea: do it ourselves,
+      and do it properly. Hospitality, farm-fresh food, and natural wellness staples —
+      each one rooted in the same land.
+    </p>
+    <a href="#companies" class="hero-cta">See our companies ↓</a>
+  </div>
+</section>
+
+<section class="section" id="companies">
+  <div class="container">
+    <p class="section-eyebrow">Our Companies</p>
+    <h2 class="section-title">Three brands, one family.</h2>
+    <p class="section-subtitle">Hover to pause, click any card to visit that business.</p>
+  </div>
+
+  <div class="carousel-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Set A -->
+      <a class="company-card homestay" href="https://vantharahomestay.com" target="_blank" rel="noopener">
+        <div class="card-kicker">Hospitality</div>
+        <span class="card-icon">🏡</span>
+        <h3>Vanthara Homestay</h3>
+        <p>A 5BHK luxury villa in Turkayamjal, Hyderabad — home theatre, rooftop terrace and a private gym. More than a stay, an experience you'll live.</p>
+        <span class="card-cta">Visit vantharahomestay.com →</span>
+      </a>
+      <a class="company-card farm" href="https://vantharaonefarm.com" target="_blank" rel="noopener">
+        <div class="card-kicker">Farm &amp; Food</div>
+        <span class="card-icon">🐓</span>
+        <h3>Vanthara One Farm</h3>
+        <p>Real country chicken — Vanaraja &amp; Sonali — farm-raised in Karnataka and delivered fresh, plus a weekly family basket. Not the broiler you get everywhere else.</p>
+        <span class="card-cta">Visit vantharaonefarm.com →</span>
+      </a>
+      <a class="company-card svt" href="https://svtfoods.com" target="_blank" rel="noopener">
+        <div class="card-kicker">Natural Foods</div>
+        <span class="card-icon">🌿</span>
+        <h3>SVT Foods</h3>
+        <p>Pure, naturally processed foods — moringa, beetroot, amla and millets, sun-dried and stone-ground the traditional way. Rooted in nature, rich in nutrition.</p>
+        <span class="card-cta">Visit svtfoods.com →</span>
+      </a>
+      <!-- Set B (duplicate for seamless loop) -->
+      <a class="company-card homestay" href="https://vantharahomestay.com" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="card-kicker">Hospitality</div>
+        <span class="card-icon">🏡</span>
+        <h3>Vanthara Homestay</h3>
+        <p>A 5BHK luxury villa in Turkayamjal, Hyderabad — home theatre, rooftop terrace and a private gym. More than a stay, an experience you'll live.</p>
+        <span class="card-cta">Visit vantharahomestay.com →</span>
+      </a>
+      <a class="company-card farm" href="https://vantharaonefarm.com" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="card-kicker">Farm &amp; Food</div>
+        <span class="card-icon">🐓</span>
+        <h3>Vanthara One Farm</h3>
+        <p>Real country chicken — Vanaraja &amp; Sonali — farm-raised in Karnataka and delivered fresh, plus a weekly family basket. Not the broiler you get everywhere else.</p>
+        <span class="card-cta">Visit vantharaonefarm.com →</span>
+      </a>
+      <a class="company-card svt" href="https://svtfoods.com" target="_blank" rel="noopener" aria-hidden="true">
+        <div class="card-kicker">Natural Foods</div>
+        <span class="card-icon">🌿</span>
+        <h3>SVT Foods</h3>
+        <p>Pure, naturally processed foods — moringa, beetroot, amla and millets, sun-dried and stone-ground the traditional way. Rooted in nature, rich in nutrition.</p>
+        <span class="card-cta">Visit svtfoods.com →</span>
+      </a>
+    </div>
+  </div>
+  <p class="carousel-hint">🖱️ Hover a card to pause — click to open that site</p>
+</section>
+
+<section class="section" id="about" style="background: var(--navy-900);">
+  <div class="container about-grid">
+    <div>
+      <p class="section-eyebrow">About Vanthara Group</p>
+      <h2 class="section-title">Built by the same family, for families.</h2>
+      <p class="section-subtitle">
+        Every Vanthara business starts from the same place — our own land in Karnataka
+        and Telangana, and a preference for doing things ourselves rather than handing
+        them off. Vanthara Homestay hosts your gatherings, Vanthara One Farm feeds your
+        family, and SVT Foods keeps your pantry stocked with the essentials — naturally.
+      </p>
+      <div class="about-stats">
+        <div class="stat"><strong>3</strong><span>Businesses</span></div>
+        <div class="stat"><strong>2</strong><span>States</span></div>
+        <div class="stat"><strong>1</strong><span>Family</span></div>
+      </div>
+    </div>
+    <div class="about-art">🌾🏡🌿</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:10px;">
+          <span class="brand-mark">🌿</span>
+          Vanthara Group
+        </div>
+        <p style="color:var(--ink-600); font-size:14px; max-width:280px;">
+          A family of businesses in hospitality, farm-fresh food, and natural wellness —
+          all rooted in the same land.
+        </p>
+      </div>
+      <div>
+        <h4>Our Companies</h4>
+        <ul>
+          <li><a href="https://vantharahomestay.com" target="_blank" rel="noopener">Vanthara Homestay ↗</a></li>
+          <li><a href="https://vantharaonefarm.com" target="_blank" rel="noopener">Vanthara One Farm ↗</a></li>
+          <li><a href="https://svtfoods.com" target="_blank" rel="noopener">SVT Foods ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#companies">Our Companies</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Vanthara Group. All rights reserved.</span>
+      <span>vantharagroup.com</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
